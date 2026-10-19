@@ -36,11 +36,45 @@
     line-height: 1.6;
   }
 
+  /* ---- criteria box ---- */
+  .criteria {
+    background: #f1f7ff;
+    border: 1.5px solid #c7dcfd;
+    border-left: 6px solid #1e5fd9;
+    border-radius: 16px;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #1a2e45;
+    line-height: 1.65;
+    font-size: 0.97rem;
+  }
+
+  .criteria h2 {
+    color: #1e4b8a;
+    font-size: 1rem;
+    margin-bottom: .55rem;
+    font-weight: 700;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+  }
+
+  .criteria p {
+    margin-bottom: .7rem;
+  }
+
+  .criteria p:last-child {
+    margin-bottom: 0;
+  }
+
+  .criteria strong {
+    color: #0b2f6b;
+  }
+
   .values {
     display: flex;
     flex-wrap: wrap;
     gap: .4rem;
-    margin: .5rem 0 1.5rem;
+    margin: .6rem 0 .2rem;
   }
 
   .chip {
@@ -144,17 +178,32 @@
 <div class="card">
   <h1>Kuamosi Award Nomination</h1>
   <p class="sub">Vote for <strong>one</strong> person who embodies the Kitsong values.</p>
-  <div class="values">
-    <span class="chip">Knowledge</span>
-    <span class="chip">Innovation</span>
-    <span class="chip">Team Work</span>
-    <span class="chip">Sacrality</span>
-    <span class="chip">Optimism</span>
-    <span class="chip">Nobility</span>
-    <span class="chip">Gratitude</span>
-  </div>
 
-  <form action="https://script.google.com/macros/s/AKfycby7mfNc1DfmucgLlM61LqQqjboFG_Nc9MrUTS9b13b3Wt2QIqt8ht3f0hq5YzDw_ZqCZA/exec" method="POST" target="_blank">
+  <!-- ===== CRITERIA TEXT ===== -->
+  <div class="criteria">
+    <h2>Who qualifies for the Kuamosi Award?</h2>
+    <p>
+      The Kuamosi Award is given to a person who <strong>embodies the values of the school</strong>.
+      The Kitsong values are:
+    </p>
+    <div class="values">
+      <span class="chip">Knowledge</span>
+      <span class="chip">Innovation</span>
+      <span class="chip">Team Work</span>
+      <span class="chip">Sacrality</span>
+      <span class="chip">Optimism</span>
+      <span class="chip">Nobility</span>
+      <span class="chip">Gratitude</span>
+    </div>
+    <p style="margin-top:.9rem;">
+      We are looking for a learner who <strong>embodies a noble character</strong>:
+      diligence, punctuality, a strong work ethic, willingness to help others,
+      and a love for people.
+    </p>
+  </div>
+  <!-- ===== END CRITERIA TEXT ===== -->
+
+  <form action="https://script.google.com/macros/s/AKfycbzP59RVhf3MyT8a5bhp-6GYWusk0lwS4aCCHeN8cY-5zPUO-NYuRl9GH0S1Mxb1ht5Hsg/exec" method="POST" target="_blank">
     <label class="email-label" for="email">Your student email *</label>
     <input type="email" id="email" name="email" placeholder="name@school.edu" required>
 
