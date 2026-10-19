@@ -1,136 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kuamosi Award · Vote</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: linear-gradient(145deg, #f8faff, #eef3fc);
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      padding: 2rem 1rem;
-      display: flex; justify-content: center;
-    }
-    .card {
-      background: #fff; max-width: 900px; width: 100%;
-      padding: 2rem; border-radius: 2rem;
-      box-shadow: 0 25px 45px -12px rgba(0,20,50,.25);
-    }
-    h1 { color: #0b2b4a; font-size: 1.8rem; margin-bottom: .25rem; }
-    .sub { color: #4a5f7a; margin-bottom: 1.5rem; line-height: 1.6; }
-    .values { display: flex; flex-wrap: wrap; gap: .4rem; margin: .5rem 0 1.5rem; }
-    .chip {
-      background: #e8f0fe; border: 1px solid #b9d2fc;
-      color: #0f3d7a; font-size: .78rem; font-weight: 600;
-      padding: .28rem .7rem; border-radius: 30px;
-    }
-    label.email-label { display: block; font-weight: 600; color: #1e4b8a; margin-bottom: .5rem; }
-    input[type=email] {
-      width: 100%; padding: .8rem 1rem; font-size: 1rem;
-      border: 1.5px solid #c3d6ee; border-radius: 14px; margin-bottom: 1.2rem;
-    }
-    input[type=email]:focus { outline: none; border-color: #2e6edf; box-shadow: 0 0 0 3px rgba(46,110,223,.15); }
-    .note { background: #eef4ff; padding: .9rem 1.2rem; border-radius: 40px;
-            color: #1e4b8a; font-weight: 600; display: inline-block; margin-bottom: 1.2rem; }
-    .grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: .6rem; margin-bottom: 1.6rem;
-    }
-    .opt {
-      display: flex; align-items: center; gap: .6rem;
-      background: #f9fcff; border: 1.5px solid #d7e2f0;
-      border-radius: 14px; padding: .7rem 1rem; cursor: pointer;
-      font-weight: 500; color: #1a2e45;
-    }
-    .opt:hover { background: #fff; border-color: #90b4e8; }
-    .opt input { accent-color: #1e5fd9; width: 18px; height: 18px; }
-    button {
-      width: 100%; padding: 1rem; font-size: 1.05rem; font-weight: 700;
-      color: #fff; background: #1e5fd9; border: none; border-radius: 60px;
-      cursor: pointer; transition: .15s;
-    }
-    button:hover { background: #134bb0; }
-    .hint { font-size: .85rem; color: #6b7f99; margin-top: .6rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuamosi Award · Vote</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:linear-gradient(145deg,#f8faff,#eef3fc);font-family:'Segoe UI',Roboto,sans-serif;padding:2rem 1rem;display:flex;justify-content:center}
+  .card{background:#fff;max-width:900px;width:100%;padding:2rem;border-radius:2rem;box-shadow:0 25px 45px -12px rgba(0,20,50,.25)}
+  h1{color:#0b2b4a;font-size:1.8rem;margin-bottom:.25rem}
+  .sub{color:#4a5f7a;margin-bottom:1.5rem;line-height:1.6}
+  .values{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0 1.5rem}
+  .chip{background:#e8f0fe;border:1px solid #b9d2fc;color:#0f3d7a;font-size:.78rem;font-weight:600;padding:.28rem .7rem;border-radius:30px}
+  label.email-label{display:block;font-weight:600;color:#1e4b8a;margin-bottom:.5rem}
+  input[type=email]{width:100%;padding:.8rem 1rem;font-size:1rem;border:1.5px solid #c3d6ee;border-radius:14px;margin-bottom:1.2rem}
+  input[type=email]:focus{outline:none;border-color:#2e6edf;box-shadow:0 0 0 3px rgba(46,110,223,.15)}
+  .note{background:#eef4ff;padding:.9rem 1.2rem;border-radius:40px;color:#1e4b8a;font-weight:600;display:inline-block;margin-bottom:1.2rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.6rem;margin-bottom:1.6rem}
+  .opt{display:flex;align-items:center;gap:.6rem;background:#f9fcff;border:1.5px solid #d7e2f0;border-radius:14px;padding:.7rem 1rem;cursor:pointer;font-weight:500;color:#1a2e45}
+  .opt:hover{background:#fff;border-color:#90b4e8}
+  .opt input{accent-color:#1e5fd9;width:18px;height:18px}
+  button{width:100%;padding:1rem;font-size:1.05rem;font-weight:700;color:#fff;background:#1e5fd9;border:none;border-radius:60px;cursor:pointer;transition:.15s}
+  button:hover{background:#134bb0}
+  .hint{font-size:.85rem;color:#6b7f99;margin-top:.6rem}
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1>🏆 Kuamosi Award Nomination</h1>
-    <p class="sub">
-      Vote for up to <strong>three</strong> people who embody the Kitsong values.
-    </p>
-    <div class="values">
-      <span class="chip">Knowledge</span>
-      <span class="chip">Innovation</span>
-      <span class="chip">Team Work</span>
-      <span class="chip">Sacrality</span>
-      <span class="chip">Optimism</span>
-      <span class="chip">Nobility</span>
-      <span class="chip">Gratitude</span>
+<div class="card">
+  <h1>Kuamosi Award Nomination</h1>
+  <p class="sub">Vote for up to <strong>three</strong> people who embody the Kitsong values.</p>
+  <div class="values">
+    <span class="chip">Knowledge</span>
+    <span class="chip">Innovation</span>
+    <span class="chip">Team Work</span>
+    <span class="chip">Sacrality</span>
+    <span class="chip">Optimism</span>
+    <span class="chip">Nobility</span>
+    <span class="chip">Gratitude</span>
+  </div>
+
+  <form action="https://script.google.com/macros/s/AKfycbxE4kVfDVlv0gf3Qdn-PfGXDj_fEhRwJlz8CHQdU0iohc-ueeK17mdw7NTBybJ45aOIzg/exec" method="POST" target="_blank">
+    <label class="email-label" for="email">Your student email *</label>
+    <input type="email" id="email" name="email" placeholder="name@school.edu" required>
+
+    <div class="note">Select 1 to 3 names — max 3 enforced by the server</div>
+
+    <div class="grid">
+      <label class="opt"><input type="checkbox" name="names" value="Senne Lethabo"> Senne Lethabo</label>
+      <label class="opt"><input type="checkbox" name="names" value="Lesame Nolithando"> Lesame Nolithando</label>
+      <label class="opt"><input type="checkbox" name="names" value="Machusi Phenyo"> Machusi Phenyo</label>
+      <label class="opt"><input type="checkbox" name="names" value="Senne Olerato"> Senne Olerato</label>
+      <label class="opt"><input type="checkbox" name="names" value="Edossa Ruth"> Edossa Ruth</label>
+      <label class="opt"><input type="checkbox" name="names" value="Olerato Senne"> Olerato Senne</label>
+      <label class="opt"><input type="checkbox" name="names" value="Lesejane Ontiretse"> Lesejane Ontiretse</label>
+      <label class="opt"><input type="checkbox" name="names" value="Tsitsi Otshepeng"> Tsitsi Otshepeng</label>
+      <label class="opt"><input type="checkbox" name="names" value="Tlotlo Setuke"> Tlotlo Setuke</label>
+      <label class="opt"><input type="checkbox" name="names" value="Tlolo Segotlong"> Tlolo Segotlong</label>
+      <label class="opt"><input type="checkbox" name="names" value="Otshepeng Mosidi"> Otshepeng Mosidi</label>
+      <label class="opt"><input type="checkbox" name="names" value="Boikanyo Realeboga"> Boikanyo Realeboga</label>
+      <label class="opt"><input type="checkbox" name="names" value="Mosidi Otshepeng"> Mosidi Otshepeng</label>
+      <label class="opt"><input type="checkbox" name="names" value="Setuke"> Setuke</label>
+      <label class="opt"><input type="checkbox" name="names" value="Tshilane Precious"> Tshilane Precious</label>
+      <label class="opt"><input type="checkbox" name="names" value="Ramagoma Leago"> Ramagoma Leago</label>
+      <label class="opt"><input type="checkbox" name="names" value="Hlanganani"> Hlanganani</label>
+      <label class="opt"><input type="checkbox" name="names" value="Thato Mfati"> Thato Mfati</label>
+      <label class="opt"><input type="checkbox" name="names" value="Leago Ramagoma"> Leago Ramagoma</label>
+      <label class="opt"><input type="checkbox" name="names" value="Rasetlola Kgalalelo"> Rasetlola Kgalalelo</label>
+      <label class="opt"><input type="checkbox" name="names" value="Magano Ororiseng"> Magano Ororiseng</label>
+      <label class="opt"><input type="checkbox" name="names" value="Motebele Kganya"> Motebele Kganya</label>
+      <label class="opt"><input type="checkbox" name="names" value="Mokoena Eliot"> Mokoena Eliot</label>
+      <label class="opt"><input type="checkbox" name="names" value="Leago"> Leago</label>
+      <label class="opt"><input type="checkbox" name="names" value="Rakhudu Ashley"> Rakhudu Ashley</label>
+      <label class="opt"><input type="checkbox" name="names" value="Kganathe Omolemo"> Kganathe Omolemo</label>
+      <label class="opt"><input type="checkbox" name="names" value="Warona Molefe"> Warona Molefe</label>
+      <label class="opt"><input type="checkbox" name="names" value="Darlington Biyiti"> Darlington Biyiti</label>
+      <label class="opt"><input type="checkbox" name="names" value="Olerato Khunou"> Olerato Khunou</label>
+      <label class="opt"><input type="checkbox" name="names" value="Masego Kagame"> Masego Kagame</label>
+      <label class="opt"><input type="checkbox" name="names" value="Anele Mogale"> Anele Mogale</label>
+      <label class="opt"><input type="checkbox" name="names" value="Onkabetse Mafoko"> Onkabetse Mafoko</label>
+      <label class="opt"><input type="checkbox" name="names" value="Remoratile Senne"> Remoratile Senne</label>
+      <label class="opt"><input type="checkbox" name="names" value="Amogelang Phiri"> Amogelang Phiri</label>
+      <label class="opt"><input type="checkbox" name="names" value="Onthatile Motebele"> Onthatile Motebele</label>
+      <label class="opt"><input type="checkbox" name="names" value="Rorisang Molose"> Rorisang Molose</label>
+      <label class="opt"><input type="checkbox" name="names" value="Ontlotile Tlhapane"> Ontlotile Tlhapane</label>
+      <label class="opt"><input type="checkbox" name="names" value="Keabetswe Mosito"> Keabetswe Mosito</label>
+      <label class="opt"><input type="checkbox" name="names" value="Ontiretse Makgala"> Ontiretse Makgala</label>
+      <label class="opt"><input type="checkbox" name="names" value="Tsholofelo Mogale"> Tsholofelo Mogale</label>
+      <label class="opt"><input type="checkbox" name="names" value="Rethabile Miya"> Rethabile Miya</label>
+      <label class="opt"><input type="checkbox" name="names" value="Lesedi Lesame"> Lesedi Lesame</label>
+      <label class="opt"><input type="checkbox" name="names" value="Omolemo Kganathe"> Omolemo Kganathe</label>
+      <label class="opt"><input type="checkbox" name="names" value="Molemo Ditsheko"> Molemo Ditsheko</label>
+      <label class="opt"><input type="checkbox" name="names" value="Pako Theledi"> Pako Theledi</label>
     </div>
 
-    <form
-      action="https://script.google.com/macros/s/AKfycbxE4kVfDVlv0gf3Qdn-PfGXDj_fEhRwJlz8CHQdU0iohc-ueeK17mdw7NTBybJ45aOIzg/exec"
-      method="POST"
-      target="_blank"
-    >
-      <label class="email-label" for="email">Your student email *</label>
-      <input type="email" id="email" name="email" placeholder="name@school.edu" required>
-
-      <div class="note">Select 1 to 3 names — max 3 enforced by the server</div>
-
-      <div class="grid">
-        <label class="opt"><input type="checkbox" name="names" value="Senne Lethabo"> Senne Lethabo</label>
-        <label class="opt"><input type="checkbox" name="names" value="Lesame Nolithando"> Lesame Nolithando</label>
-        <label class="opt"><input type="checkbox" name="names" value="Machusi Phenyo"> Machusi Phenyo</label>
-        <label class="opt"><input type="checkbox" name="names" value="Senne Olerato"> Senne Olerato</label>
-        <label class="opt"><input type="checkbox" name="names" value="Edossa Ruth"> Edossa Ruth</label>
-        <label class="opt"><input type="checkbox" name="names" value="Olerato Senne"> Olerato Senne</label>
-        <label class="opt"><input type="checkbox" name="names" value="Lesejane Ontiretse"> Lesejane Ontiretse</label>
-        <label class="opt"><input type="checkbox" name="names" value="Tsitsi Otshepeng"> Tsitsi Otshepeng</label>
-        <label class="opt"><input type="checkbox" name="names" value="Tlotlo Setuke"> Tlotlo Setuke</label>
-        <label class="opt"><input type="checkbox" name="names" value="Tlolo Segotlong"> Tlolo Segotlong</label>
-        <label class="opt"><input type="checkbox" name="names" value="Otshepeng Mosidi"> Otshepeng Mosidi</label>
-        <label class="opt"><input type="checkbox" name="names" value="Boikanyo Realeboga"> Boikanyo Realeboga</label>
-        <label class="opt"><input type="checkbox" name="names" value="Mosidi Otshepeng"> Mosidi Otshepeng</label>
-        <label class="opt"><input type="checkbox" name="names" value="Setuke"> Setuke</label>
-        <label class="opt"><input type="checkbox" name="names" value="Tshilane Precious"> Tshilane Precious</label>
-        <label class="opt"><input type="checkbox" name="names" value="Ramagoma Leago"> Ramagoma Leago</label>
-        <label class="opt"><input type="checkbox" name="names" value="Hlanganani"> Hlanganani</label>
-        <label class="opt"><input type="checkbox" name="names" value="Thato Mfati"> Thato Mfati</label>
-        <label class="opt"><input type="checkbox" name="names" value="Leago Ramagoma"> Leago Ramagoma</label>
-        <label class="opt"><input type="checkbox" name="names" value="Rasetlola Kgalalelo"> Rasetlola Kgalalelo</label>
-        <label class="opt"><input type="checkbox" name="names" value="Magano Ororiseng"> Magano Ororiseng</label>
-        <label class="opt"><input type="checkbox" name="names" value="Motebele Kganya"> Motebele Kganya</label>
-        <label class="opt"><input type="checkbox" name="names" value="Mokoena Eliot"> Mokoena Eliot</label>
-        <label class="opt"><input type="checkbox" name="names" value="Leago"> Leago</label>
-        <label class="opt"><input type="checkbox" name="names" value="Rakhudu Ashley"> Rakhudu Ashley</label>
-        <label class="opt"><input type="checkbox" name="names" value="Kganathe Omolemo"> Kganathe Omolemo</label>
-        <label class="opt"><input type="checkbox" name="names" value="Warona Molefe"> Warona Molefe</label>
-        <label class="opt"><input type="checkbox" name="names" value="Darlington Biyiti"> Darlington Biyiti</label>
-        <label class="opt"><input type="checkbox" name="names" value="Olerato Khunou"> Olerato Khunou</label>
-        <label class="opt"><input type="checkbox" name="names" value="Masego Kagame"> Masego Kagame</label>
-        <label class="opt"><input type="checkbox" name="names" value="Anele Mogale"> Anele Mogale</label>
-        <label class="opt"><input type="checkbox" name="names" value="Onkabetse Mafoko"> Onkabetse Mafoko</label>
-        <label class="opt"><input type="checkbox" name="names" value="Remoratile Senne"> Remoratile Senne</label>
-        <label class="opt"><input type="checkbox" name="names" value="Amogelang Phiri"> Amogelang Phiri</label>
-        <label class="opt"><input type="checkbox" name="names" value="Onthatile Motebele"> Onthatile Motebele</label>
-        <label class="opt"><input type="checkbox" name="names" value="Rorisang Molose"> Rorisang Molose</label>
-        <label class="opt"><input type="checkbox" name="names" value="Ontlotile Tlhapane"> Ontlotile Tlhapane</label>
-        <label class="opt"><input type="checkbox" name="names" value="Keabetswe Mosito"> Keabetswe Mosito</label>
-        <label class="opt"><input type="checkbox" name="names" value="Ontiretse Makgala"> Ontiretse Makgala</label>
-        <label class="opt"><input type="checkbox" name="names" value="Tsholofelo Mogale"> Tsholofelo Mogale</label>
-        <label class="opt"><input type="checkbox" name="names" value="Rethabile Miya"> Rethabile Miya</label>
-        <label class="opt"><input type="checkbox" name="names" value="Lesedi Lesame"> Lesedi Lesame</label>
-        <label class="opt"><input type="checkbox" name="names" value="Omolemo Kganathe"> Omolemo Kganathe</label>
-        <label class="opt"><input type="checkbox" name="names" value="Molemo Ditsheko"> Molemo Ditsheko</label>
-        <label class="opt"><input type="checkbox" name="names" value="Pako Theledi"> Pako Theledi</label>
-      </div>
-
-      <button type="submit">Submit vote</button>
-      <p class="hint">After submitting, you'll see a confirmation page from the server.</p>
-    </form>
-  </div>
+    <button type="submit">Submit vote</button>
+    <p class="hint">After submitting, you'll see a confirmation page from the server.</p>
+  </form>
+</div>
 </body>
 </html>
